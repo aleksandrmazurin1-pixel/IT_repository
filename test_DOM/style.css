@@ -1,0 +1,24 @@
+#fleet-list { list-style: none; padding: 0; }
+#fleet-list li {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.fuel-track {
+    background: #ddd;
+    border-radius: 6px;
+    height: 10px;
+    margin: 6px 0;
+    overflow: hidden;
+}
+.fuel-bar {
+    height: 100%;
+    background: green;
+}
+
+.progress-bar {
+    background-color: #a5a5a5;
+    height: 6px;
+    border-radius: 5px;
+}

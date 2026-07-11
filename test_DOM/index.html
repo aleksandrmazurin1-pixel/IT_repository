@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+</head>
+
+<body>
+
+    <form id="formCategory">
+        <input type="text" id="inputCategory" placeholder="Добавьте категорию">
+        <button type="submit">Добавить категорию</button>
+    </form>
+
+    <form id="formTask">
+        <input type="text" id="inputTask" placeholder="Добавьте задачу">
+        <select id="selectorCategory"></select>
+        <button type="submit">Добавить задачу</button>
+    </form>
+
+    <ul id="list">
+        <li data-cat-id="abc">
+            Работа
+            <button>Удалить категорию</button>
+            <ul data-tasks-for="abc">
+                <li data-task-id="xyz">Написать отчёт <button>Del</button></li>
+                <li data-task-id="def">Позвонить клиенту <button>Del</button></li>
+            </ul>
+        </li>
+        <li data-cat-id="qwe">
+            Учёба
+            <button>Удалить категорию</button>
+            <ul data-tasks-for="qwe">
+                <li data-task-id="ijk">Прочитать главу <button>Del</button></li>
+            </ul>
+        </li>
+    </ul>
+
+    <script src="data.js"></script>
+    <script src="display.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

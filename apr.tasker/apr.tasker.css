@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh; 
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #74ebd5, #9face6);  
+}
+
+.title {
+    display: flex;
+    font-size: 55px;
+    font-family: Nunito;
+    color: white;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.title-plus {
+    font-size: 90px;
+}
+
+.wrapper {
+    display: flex; 
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.input-body {
+    display: block;
+    min-width:300px;
+    min-height: 40px;
+    border-radius: 8px;
+    border: none;
+    margin-right: 10px;
+    color: rgb(164, 199, 226);
+    padding-left: 10px;
+    font-family: Nunito;
+    font-size: 16px;
+}
+
+.input-body:focus {
+     outline: none;
+}
+
+
+input::placeholder {
+    color: rgb(164, 199, 226);
+    font-size: 16px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #76caee, #2696e6);
+    border: 0px;
+    border-radius: 8px;
+    font-family: Nunito;
+    min-width:50px;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.list {
+    padding: 0px;
+    list-style: none;
+    width: 100%;
+    max-width: 400px; /* та же ширина что у wrapper */
+}
+
+.li-tasker {
+    display: flex; 
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+.span-tasker {
+    background-color: white;
+    border-radius: 8px;
+    min-width:280px;
+    min-height: 35px;
+    padding-left: 12px;
+    padding-top: 5px;
+    font-family: Nunito;
+    font-size: 20px;
+    color: #686767;
+    word-break: break-word; /* ты это добавлял? */
+    max-width: 280px;       /* ограничь максимальную ширину */
+    white-space: normal;    
+}
+
+.done {
+    text-decoration: line-through;
+    color: rgb(164, 199, 226);
+    opacity: 90%;
+}
+
+.del-btn {
+    background: linear-gradient(135deg, #ce0934, #e25170);
+    border: 0px;
+    border-radius: 8px;
+    font-family: Nunito;
+    min-width:50px;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+} 
+
+.li-tasker.done .span-tasker {
+    text-decoration: line-through;
+    color: #aaa;
+    opacity: 0.9;
+}
+
+.li-tasker.done .del-btn {
+    opacity: 0.9;
+    text-decoration: none;
+}
