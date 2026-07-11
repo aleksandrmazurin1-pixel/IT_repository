@@ -1,5 +1,5 @@
 //Globals
-let todos = ['ccc', 'ccc'];
+let todos = [];
 let users = [];
 
 const list = document.getElementById('todo-list');
@@ -9,17 +9,26 @@ const list = document.getElementById('todo-list');
 document.addEventListener('DOMContentLoaded', initApp);
 
 //Basic logic
-function getUserName(userId) {
-    const user = users.find(user => user.id === userId);
-    return user.name;
+function getUserName(id) {
+    const user = users.find(user => user.id === id);
+    return user.country;
 }
 
-function printTodo({id, userId, title, completed}) {
+function printTodo({id, name, completed}) {
     const li = document.createElement('li');
     li.className = 'todo-item';
     li.dataset.id = id;
-    li.innerHTML = `<span>${title} <i>ОТ</i> ${getUserName(userId)}</span>`;
-    list.prepend(li)
+    li.innerHTML = `<span>${name} ОТ <b>${getUserName(id)}</b></span>`;
+
+    const status = document.createElement('input');
+    status.type = 'checkbox';
+    status.checked = completed;
+
+    //const delBtn = 
+
+
+    list.prepend(li);
+    li.prepend(status);
 } 
 
 
@@ -28,6 +37,7 @@ function printTodo({id, userId, title, completed}) {
 function initApp() {
     Promise.all([getAllTodos(), getAllUsers()]).then(values => {
         [todos, users] = values;
+        console.log(todos, users)
         todos.forEach(todo => printTodo(todo))
     });
 }
@@ -37,7 +47,7 @@ function initApp() {
 // Async logic
 
 async function getAllTodos() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+    const response = await fetch('https://fake-json-api.mock.beeceptor.com/companies');
     const data = await response.json();
 
     return data;
@@ -45,7 +55,7 @@ async function getAllTodos() {
 
 
 async function getAllUsers() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const response = await fetch('https://fake-json-api.mock.beeceptor.com/users');
     const data = await response.json();
 
     return data;
