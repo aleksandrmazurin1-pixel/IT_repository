@@ -9,6 +9,7 @@ const form = document.getElementById('form');
 
 //Attach event 
 document.addEventListener('DOMContentLoaded', initApp);
+form.addEventListener('submit', handleSubmit);
 
 //Basic logic
 function getUserName(id) {
@@ -36,7 +37,7 @@ function printTodo({ id, name, completed }) {
 }
 
 function createUserOption(user) {
-    
+
     const option = document.createElement('option');
     option.value = user.id;
     option.innerText = user.name;
@@ -54,7 +55,15 @@ function initApp() {
     });
 }
 
+function handleSubmit(event) {
+    event.preventDefault();
+    console.log(form.todo.value);
 
+    createTodo({
+        name: form.todo.value,
+        completed: false
+    });
+}
 
 // Async logic
 
@@ -73,18 +82,14 @@ async function getAllUsers() {
     return data;
 }
 
-async function createTodo (todo) {
-    const response = await fetch('https://fake-json-api.mock.beeceptor.com/todos', {
+async function createTodo(todo) {
+    const response = await fetch('https://fake-json-api.mock.beeceptor.com/companies', {
         method: 'POST',
         body: JSON.stringify(todo),
-
         headers: {
             'Content-Type': 'application/json',
         },
-    }),
-    const todoId = await response.json();
-
-    console.log(todoId);
-
-    printTodo({id: todoId, ...todo})
+    });
+    
+    printTodo({id: crypto.randomUUID(), ...todo});
 }
